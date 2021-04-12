@@ -1,0 +1,20 @@
+apiVersion : apps/v1
+kind : Deployment
+metadata:
+  name : hey-deployment
+  labels:
+    app : tom
+spec:
+  template:
+    metadata:
+      labels:
+        app : tom
+    spec:
+      containers:
+        - name : hey
+          image : devtechieops/hey:2.0
+          ports:
+            - containerPort : 8080
+  selector:
+    matchLabels:
+      app : tom
